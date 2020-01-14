@@ -18,12 +18,22 @@ os_name = os.name
 os_release = release()
 
 #Graphics Functions
+#Created By Rabia Alhaffar In 13/January/2020
+#Graphics Module For Blueberry,In Development!!!
+#NOTES: It Uses turtle Module So It Requires Python 2.5+
+import turtle,random
+from turtle import *
+from random import *
+
+blueberry = turtle
+
 def init(h,w,t):
-      window = Screen()  
-      window.setup(width=w , height=h ) 
+      bwindow = Screen()  
+      bwindow.setup(width=w , height=h ) 
       blueberry = turtle
       windowheight = blueberry.window_height()
       windowwidth = blueberry.window_width()
+      bturtle = bluberry.Turtle()
       blueberry.speed(0) 
       blueberry.hideturtle()
       blueberry.title(t)
@@ -116,7 +126,7 @@ def wait(s):
 
 #NOTES: update() Here Used Last Of Game Code,Also Use clear() At Begining To Update Game Content!!!
 def update():
-  blueberry.mainloop()
+  bscreen.update()
 
 def beginfill():
   blueberry.begin_fill()
@@ -178,7 +188,7 @@ def square(x,y,size,fill,stroke):
   blueberry.home()
   blueberry.pendown()
 
-def rect(x,y,h,w,fill,stroke):
+def rect(x,y,h,w,fill,stroke): 
   blueberry.color(stroke,fill)
   blueberry.penup()
   blueberry.setx(x)
@@ -249,6 +259,19 @@ def polysides(x,y,sides,size,fill,stroke):
       blueberry.penup()
       blueberry.home()
       blueberry.pendown()
+
+def loopgame():
+      bscreen.mainloop()
+      
+def trace():
+      bscreen.tracer(0,0)
+
+def addimg(src):
+      bscreen.addshape(src)
+
+def shape(src):
+      bscreen.shape(src)
+
 #Input Functions
 def exitclick():
     blueberry.exitonclick()
@@ -326,3 +349,48 @@ def collisionwindowbottom(oy,oh):
 from playsound import *
 def playaudio(src):
   playsound(src)
+
+#Utilities
+#Colors
+red = "red"
+orange = "orange"
+yellow = "yellow" 
+green = "green"
+blue = "blue"
+pink = "pink"
+purple = "purple"
+silver = "silver"
+white = "white"
+cyan = "cyan"
+black = "black"
+aqua = "aqua"
+grey = "grey"
+
+#Utilities Use
+disposed = 0
+
+#To Swap Between Colors,Can Be For Values
+def swapvalues(a,b):
+    disposed = a
+    a = b
+    b = disposed
+
+#Random Value Getted Between num1 And num2
+def randbetween(num1,num2):
+    return randrange(num1,num2)
+
+#Random Value Generated Between 0 And num
+def rand(num):
+    return math.floor(math.random() * num)
+
+#Random Fill And Stroke Color
+def randcolor():
+    blueberry.color((randrange(0,256),randrange(0,256),randrange(0,256)),(randrange(0,256),randrange(0,256),randrange(0,256)))
+
+#Random Fill Color
+def randfill():
+    blueberry.fillcolor((randrange(0,256),randrange(0,256),randrange(0,256)))
+
+#Random Stroke Color
+def randstroke():
+    blueberry.pencolor((randrange(0,256),randrange(0,256),randrange(0,256)))
