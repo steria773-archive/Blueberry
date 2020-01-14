@@ -6,11 +6,12 @@ from turtle import *
 from random import *
 blueberry = turtle
 def init(h,w,t):
-      window = Screen()  
-      window.setup(width=w , height=h ) 
+      bwindow = Screen()  
+      bwindow.setup(width=w , height=h ) 
       blueberry = turtle
       windowheight = blueberry.window_height()
       windowwidth = blueberry.window_width()
+      bturtle = bluberry.Turtle()
       blueberry.speed(0) 
       blueberry.hideturtle()
       blueberry.title(t)
@@ -103,7 +104,7 @@ def wait(s):
 
 #NOTES: update() Here Used Last Of Game Code,Also Use clear() At Begining To Update Game Content!!!
 def update():
-  blueberry.mainloop()
+  bscreen.update()
 
 def beginfill():
   blueberry.begin_fill()
@@ -236,3 +237,15 @@ def polysides(x,y,sides,size,fill,stroke):
       blueberry.penup()
       blueberry.home()
       blueberry.pendown()
+
+def loopgame():
+      bscreen.mainloop()
+      
+def trace():
+      bscreen.tracer(0,0)
+
+def addimg(src):
+      bscreen.addshape(src)
+
+def shape(src):
+      bscreen.shape(src)
