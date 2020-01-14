@@ -137,7 +137,7 @@ def wait(s):
 
 #NOTES: update() Here Used Last Of Game Code,Also Use clear() At Begining To Update Game Content!!!
 def update():
-  bscreen.update()
+  blueberry.update()
 
 def beginfill():
   blueberry.begin_fill()
@@ -305,16 +305,16 @@ def polysides(x,y,sides,size,fill,stroke):
       blueberry.pendown()
 
 def loopgame():
-      bscreen.mainloop()
+      blueberry.mainloop()
       
 def trace():
-      bscreen.tracer(0,0)
+      blueberry.tracer(0,0)
 
 def addimg(src):
-      bscreen.addshape(src)
+      blueberry.addshape(src)
 
 def shape(src):
-      bscreen.shape(src)
+      blueberry.shape(src)
 
 def size(s):
       blueberry.pensize(s)
