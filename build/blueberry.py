@@ -3,11 +3,12 @@
 #NOTES: It Uses turtle Module So It Requires Python 2.5+
 
 #Modules
-import turtle,random,math,sys,os,platform,playsound
+import turtle,random,math,sys,os,webbrowser,platform,playsound
 from turtle import *
 from random import *
 from math import *
 from os import *
+from webbrowser import *
 from platform import *
 from sys import *
 from playsound import *
@@ -16,6 +17,20 @@ from playsound import *
 blueberry = turtle
 os_name = os.name
 os_release = release()
+red = "red"
+orange = "orange"
+yellow = "yellow" 
+green = "green"
+blue = "blue"
+pink = "pink"
+purple = "purple"
+silver = "silver"
+white = "white"
+cyan = "cyan"
+black = "black"
+aqua = "aqua"
+grey = "grey"
+disposed = 0
 
 #Graphics Functions
 #Created By Rabia Alhaffar In 13/January/2020
@@ -28,40 +43,54 @@ from random import *
 blueberry = turtle
 
 def init(h,w,t):
+      if h == None: h = 600
+      if w == None: w = 600
+      if t == None: t = "GAME"
       bwindow = Screen()  
       bwindow.setup(width=w , height=h ) 
       blueberry = turtle
       windowheight = blueberry.window_height()
       windowwidth = blueberry.window_width()
-      bturtle = bluberry.Turtle()
+      bturtle = blueberry.Turtle()
       blueberry.speed(0) 
       blueberry.hideturtle()
       blueberry.title(t)
 def forward(px):
-  blueberry.fd(px)
+      if px == None: px = 0
+      blueberry.fd(px)
     
-def backward(px): 
-  blueberry.bk(px)
+def backward(px):
+      if px == None: px = 0
+      blueberry.bk(px)
     
-def clear(): 
-  blueberry.clear()
+def clear():
+      blueberry.clear()
 
-def go(x,y): 
-  blueberry.goto(x,y)
+def go(x,y):
+      if x == None: x = 0
+      if y == None: y = 0
+      blueberry.goto(x,y)
     
 def translate(x,y):
+  if x == None: x = 0
+  if y == None: y = 0
   blueberry.penup()
   blueberry.setx(x) 
   blueberry.sety(y)
   blueberry.pendown()
     
-def color(fill,stroke):	
-  blueberry.pencolor(stroke,fill)
+def color(fill,stroke):
+      if fill == None: fill = "black"
+      if stroke == None: stroke = "black"
+      blueberry.pencolor(stroke,fill)
     
 def reset():
-  blueberry.reset()
+      blueberry.reset()
     
 def pixel(x,y,s,color):
+  if x == None: x = 0
+  if y == None: y = 0
+  if s == None: s = 1
   blueberry.penup()
   blueberry.setx(x)
   blueberry.sety(y)
@@ -75,27 +104,37 @@ def flashback():
   blueberry.undo()
     
 def strokecolor(c):
+  if c == None: c = "black"
   blueberry.pencolor(c)
 
 def fillcolor(c):
+  if c == None: c = "black"
   blueberry.fillcolor(c)
 
 def color(fill,stroke):
   blueberry.color(stroke,fill)
   
 def colorbg(c):
+  if c == None: c = "black"
   blueberry.bgcolor(c)
     
 def gdshape(s):
   blueberry.shape(s)
     
 def turnright(angle):
+  if angle == None: angle = 0
   blueberry.right(angle)
 
 def turnleft(angle):
+  if angle == None: angle = 0
   blueberry.left(angle) 
 
 def circle(x,y,r,fill,stroke):
+  if x == None: x = 0
+  if y == None: y = 0
+  if r == None: r = 1
+  if fill == None: fill = "black"
+  if stroke == None: stroke = "black"
   blueberry.color(stroke,fill)
   blueberry.penup()  
   blueberry.setx(x)
@@ -108,7 +147,16 @@ def circle(x,y,r,fill,stroke):
   blueberry.home()
   blueberry.pendown()
   
-def text(x,y,text,move,align,font):
+def text(x,y,text,move,align,fonttype,fontsize,fontmode):
+  if x == None: x = 0
+  if y == None: y = 0
+  if text == None: text = ""
+  if move == None: move = False
+  if align == None: align = "left"
+  if fontsize == None: fontsize = 8
+  if fonttype == None: fonttype = "arial"
+  if fontmode == None: fontmode = "noraml"
+  font = (fonttype,fontsize,fontmode)
   blueberry.penup()
   blueberry.setx(x)
   blueberry.sety(y)
@@ -138,6 +186,13 @@ def focus():
   blueberry.listen()
 
 def triangle(x,y,a,b,c,fill,stroke):
+  if x == None: x = 0
+  if y == None: y = 0
+  if a == None: a = 0
+  if b == None: b = 0
+  if c == None: c = 0
+  if fill == None: fill = "black"
+  if stroke == None: stroke = "black"
   blueberry.penup()
   blueberry.setx(x)
   blueberry.sety(y)
@@ -157,15 +212,22 @@ def call(gamefunction,fps):
   blueberry.ontimer(gamefunction,fps)
 
 def rotate(angle):
+  if angle == None: angle = 0
   blueberry.tilt(angle)
 
 def setangle(angle):
+  if angle == None: angle = 0
   blueberry.settiltangle(angle)
 
-def resettilting(angle):
+def resettilting():
   blueberry.tilt(0)
 
 def square(x,y,size,fill,stroke):
+  if x == None: x = 0
+  if y == None: y = 0
+  if size == None: size = 1
+  if fill == None: fill = "black"
+  if stroke == None: stroke = "black"
   blueberry.color(stroke,fill)
   blueberry.penup()
   blueberry.setx(x)
@@ -188,7 +250,13 @@ def square(x,y,size,fill,stroke):
   blueberry.home()
   blueberry.pendown()
 
-def rect(x,y,h,w,fill,stroke): 
+def rect(x,y,h,w,fill,stroke):
+  if x == None: x = 0
+  if y == None: y = 0
+  if h == None: h = 0
+  if w == None: w = 0
+  if fill == None: fill = "black"
+  if stroke == None: stroke = "black"
   blueberry.color(stroke,fill)
   blueberry.penup()
   blueberry.setx(x)
@@ -211,8 +279,15 @@ def rect(x,y,h,w,fill,stroke):
   blueberry.home()
   blueberry.pendown()
 
-def line(x1,y1,x2,y2,stroke):
+def line(x1,y1,x2,y2,size,stroke):
+      if x1 == None: x1 = 0
+      if y1 == None: y1 = 0
+      if x2 == None: x2 = 0
+      if y2 == None: y2 = 0
+      if size == None: size = 1
+      if stroke == None: stroke = "black"
       blueberry.color(stroke)
+      blueberry.pensize(size)
       blueberry.penup()
       blueberry.setx(x1)
       blueberry.sety(y1)
@@ -243,6 +318,12 @@ def poly(points,fill,stroke):
     blueberry.pendown()
     
 def polysides(x,y,sides,size,fill,stroke):
+      if x == None: x = 0
+      if y == None: y = 0
+      if sides == None: sides = 3
+      if size == None: size = 30
+      if fill == None: fill = "black"
+      if stroke == None: stroke = "black"
       blueberry.color(stroke,fill)
       blueberry.penup()
       blueberry.setx(x)
@@ -272,17 +353,20 @@ def addimg(src):
 def shape(src):
       bscreen.shape(src)
 
+def size(s):
+      blueberry.pensize(s)
+
 #Input Functions
 def exitclick():
     blueberry.exitonclick()
     
-def bindkey(f,k):
+def bindkey(k,f):
     blueberry.onkey(f,k)
     
-def presskey(f,k):
+def presskey(k,f):
     blueberry.onkeypress(f,k)
 
-def releasekey(f,k):
+def releasekey(k,f):
     blueberry.onkeyrelease(f,k)
 
 def click(f):
@@ -292,11 +376,16 @@ def click(f):
 def execute(commands):
   os.system(commands)
   
+def process(loc):
+  os.system("start " + loc)
+  
 #Game Misc Functions
 def closegame():
     blueberry.bye()
 
 def resize(h,w):
+    if h == None: h = 600
+    if w == None: w = 600
     blueberry.screensize(w,h)
     
 #GUI Functions
@@ -351,36 +440,23 @@ def playaudio(src):
   playsound(src)
 
 #Utilities
-#Colors
-red = "red"
-orange = "orange"
-yellow = "yellow" 
-green = "green"
-blue = "blue"
-pink = "pink"
-purple = "purple"
-silver = "silver"
-white = "white"
-cyan = "cyan"
-black = "black"
-aqua = "aqua"
-grey = "grey"
-
-#Utilities Use
-disposed = 0
-
 #To Swap Between Colors,Can Be For Values
 def swapvalues(a,b):
+    if a == None: a = 0
+    if b == None: b = 0
     disposed = a
     a = b
     b = disposed
 
 #Random Value Getted Between num1 And num2
 def randbetween(num1,num2):
+    if num1 == None: num1 = 0
+    if num2 == None: num2 = 2
     return randrange(num1,num2)
 
 #Random Value Generated Between 0 And num
 def rand(num):
+    if num == None: num = 1
     return math.floor(math.random() * num)
 
 #Random Fill And Stroke Color
@@ -394,3 +470,6 @@ def randfill():
 #Random Stroke Color
 def randstroke():
     blueberry.pencolor((randrange(0,256),randrange(0,256),randrange(0,256)))
+
+def openurl(url):
+    webbrowser.open_new(url)
