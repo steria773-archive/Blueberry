@@ -5,6 +5,9 @@ from platform import *
 from sys import *
 from system import *
 os_name = os.name
-os_release = platform.release()
+os_release = release()
 def execute(commands):
   os.system(commands)
+
+def process(loc):
+  os.system("start " + loc)

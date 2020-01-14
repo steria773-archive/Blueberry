@@ -8,14 +8,15 @@ blueberry = turtle
 def exitclick():
     blueberry.exitonclick()
     
-def bindkey(f,k):
+def bindkey(k,f):
     blueberry.onkey(f,k)
     
-def presskey(f,k):
+def presskey(k,f):
     blueberry.onkeypress(f,k)
 
-def releasekey(f,k):
+def releasekey(k,f):
     blueberry.onkeyrelease(f,k)
 
 def click(f):
     blueberry.onclick(f)
+    
