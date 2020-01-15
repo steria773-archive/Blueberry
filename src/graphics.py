@@ -147,7 +147,7 @@ def endfill():
 
 def focus():
   blueberry.listen()
-
+ 
 def triangle(x,y,a,b,c,fill,stroke):
   if x == None: x = 0
   if y == None: y = 0
