@@ -55,6 +55,7 @@ def pixel(x,y,s,color):
   if y == None: y = 0
   if s == None: s = 1
   blueberry.penup()
+  blueberry.pensize(1)
   blueberry.setx(x)
   blueberry.sety(y)
   blueberry.pendown()
@@ -100,6 +101,7 @@ def circle(x,y,r,fill,stroke):
   if stroke == None: stroke = "black"
   blueberry.color(stroke,fill)
   blueberry.penup()  
+  blueberry.pensize(1)
   blueberry.setx(x)
   blueberry.sety(y)
   blueberry.pendown()
@@ -148,7 +150,7 @@ def endfill():
 def focus():
   blueberry.listen()
  
-def triangle(x,y,a,b,c,fill,stroke):
+def tri(x,y,a,b,c,fill,stroke):
   if x == None: x = 0
   if y == None: y = 0
   if a == None: a = 0
@@ -157,6 +159,7 @@ def triangle(x,y,a,b,c,fill,stroke):
   if fill == None: fill = "black"
   if stroke == None: stroke = "black"
   blueberry.penup()
+  blueberry.pensize(1)
   blueberry.setx(x)
   blueberry.sety(y)
   blueberry.color(stroke,fill)
@@ -166,6 +169,31 @@ def triangle(x,y,a,b,c,fill,stroke):
   blueberry.goto(a,b)
   blueberry.goto(b,c)
   blueberry.goto(c,a)
+  blueberry.end_fill()
+  blueberry.penup()
+  blueberry.home()
+  blueberry.pendown()
+
+def triangle(x1,y1,x2,y2,x3,y3,fill,stroke):
+  if x1 == None: x1 = 0
+  if y1 == None: y1 = 0
+  if x2 == None: x2 = 0
+  if y2 == None: y2 = 0
+  if x3 == None: x3 = 0
+  if y3 == None: y3 = 0
+  if fill == None: fill = "black"
+  if stroke == None: stroke = "black"
+  blueberry.penup()
+  blueberry.pensize(1)
+  blueberry.setx(x1)
+  blueberry.sety(y1)
+  blueberry.color(stroke,fill)
+  blueberry.penup()
+  blueberry.pendown()
+  blueberry.begin_fill()
+  blueberry.goto(x2,y2)
+  blueberry.goto(x3,y3)
+  blueberry.goto(x1,y1)
   blueberry.end_fill()
   blueberry.penup()
   blueberry.home()
@@ -193,6 +221,7 @@ def square(x,y,size,fill,stroke):
   if stroke == None: stroke = "black"
   blueberry.color(stroke,fill)
   blueberry.penup()
+  blueberry.pensize(1)
   blueberry.setx(x)
   blueberry.sety(y)
   blueberry.pendown()
@@ -222,6 +251,7 @@ def rect(x,y,h,w,fill,stroke):
   if stroke == None: stroke = "black"
   blueberry.color(stroke,fill)
   blueberry.penup()
+  blueberry.pensize(1)
   blueberry.setx(x)
   blueberry.sety(y)
   blueberry.pendown()
@@ -268,6 +298,7 @@ def poly(points,fill,stroke):
     blueberry.setx(points[0][0])
     blueberry.sety(points[0][1])
     blueberry.pendown()
+    blueberry.pensize(1)
     blueberry.begin_fill()
     blueberry.pencolor(stroke)
     blueberry.fillcolor(fill)
@@ -292,6 +323,7 @@ def polysides(x,y,sides,size,fill,stroke):
       blueberry.setx(x)
       blueberry.sety(y)
       blueberry.pendown()
+      blueberry.pensize(1)
       blueberry.begin_fill()
       blueberry.pencolor(stroke)
       blueberry.fillcolor(fill)
