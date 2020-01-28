@@ -36,7 +36,7 @@ disposed = 0
 #Created By Rabia Alhaffar In 13/January/2020
 #Graphics Module For Blueberry,In Development!!!
 #NOTES: It Uses turtle Module So It Requires Python 2.5+
-def init(h,w,t):
+def init(w,h,t):
       if h == None: h = 600
       if w == None: w = 600
       if t == None: t = "GAME"
@@ -273,7 +273,7 @@ def square(x,y,size,fill,stroke):
   blueberry.home()
   blueberry.pendown()
 
-def rect(x,y,h,w,fill,stroke):
+def rect(x,y,w,h,fill,stroke):
   if x == None: x = 0
   if y == None: y = 0
   if h == None: h = 0
@@ -382,6 +382,7 @@ def shape(src):
 def size(s):
       blueberry.pensize(s)
 
+
 #Input Functions
 blueberry = turtle
 def exitclick():
@@ -431,7 +432,7 @@ def numinput(title,prompt):
     blueberry.numinput(title,prompt)
     
 #Physics Functions
-def collisionrects(r1_x,r1_y,r1_h,r1_w,r2_x,r2_y,r2_h,r2_w):
+def collisionrects(r1_x,r1_y,r1_w,r1_h,r2_x,r2_y,r2_w,r2_h):
     if r1_x < r2_x + r2_w and r1_x + r1_w > r2_x and r1_y < r2_y + r2_h and r1_y + r1_h > r2_y:
         return True
     else: return False
@@ -443,7 +444,7 @@ def collisioncircles(c1_x,c1_y,c1_r,c2_x,c2_y,c2_r):
     if dist < c1_r + c2_r: return True
     else: return False
 
-def collisioncirclerect(c1_x,c1_y,c1_r,r1_x,r1_y,r1_h,r1_w):
+def collisioncirclerect(c1_x,c1_y,c1_r,r1_x,r1_y,r1_w,r1_h):
     distx = abs(c1_x - r1_x - r1_w / 2)
     disty = abs(c1_y - r1_y - r1_h / 2)
     if distx <= (r1_w / 2): return True
@@ -468,6 +469,7 @@ def collisionwindowtop(oy,oh):
 def collisionwindowbottom(oy,oh):
     if oy + oh >= blueberry.window_height() + oh * 0.5: return True
     else: return False
+
 
 #Audio
 def playaudio(src):
