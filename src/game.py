@@ -7,7 +7,7 @@ blueberry = turtle
 def closegame():
     blueberry.bye()
 
-def resize(h,w):
+def resize(w,h):
       if h == None: h = 600
       if w == None: w = 600
       bwindow = Screen()  

@@ -5,7 +5,7 @@ import turtle,random
 from turtle import *
 from random import *
 blueberry = turtle
-def init(h,w,t):
+def init(w,h,t):
       if h == None: h = 600
       if w == None: w = 600
       if t == None: t = "GAME"
@@ -242,7 +242,7 @@ def square(x,y,size,fill,stroke):
   blueberry.home()
   blueberry.pendown()
 
-def rect(x,y,h,w,fill,stroke):
+def rect(x,y,w,h,fill,stroke):
   if x == None: x = 0
   if y == None: y = 0
   if h == None: h = 0
